@@ -76,7 +76,7 @@ function User(props) {
 
     async function featchPostList() {
         try {
-            // console.log(filters)
+         
             const paramsString = queryString.stringify(filters);
             let response = await fetch(`http://127.0.0.1:8000/auth/account/search?search=${search}`, {
                 method: 'GET',
@@ -85,7 +85,7 @@ function User(props) {
                 }
             })
             const responseJSON = await response.json();
-            // console.log({ responseJSON });
+          
             const { data, pagination } = responseJSON;
             setpostList(responseJSON);
             setPagination({
@@ -93,10 +93,9 @@ function User(props) {
                 pageSize: 10,
                 count: responseJSON?.data?.count,
             });
-            // console.log("pagination-----------------", responseJSON?.data?.rows);
+         
         } catch (error) {
-            // console.log('Fail to fetch product list: ', error)
-
+          
         }
 
     }
@@ -110,7 +109,7 @@ function User(props) {
     // }
 
     function handleSearchTermChange(newFilters) {
-        // console.log('new Filters: ', newFilters)
+   
         setFilters({
             ...filters,
             page: 1,
@@ -128,7 +127,7 @@ function User(props) {
 
     };
 
-    // console.log("value của search trong mangagement", search)
+   
     const handleClose = (event, reason) => {
         if (reason === "clickaway") {
             return;

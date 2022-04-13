@@ -134,7 +134,6 @@ function PostManagement(props) {
     // }
 
     function handleSearchTermChange(newFilters) {
-        console.log('new Filters: ', newFilters)
         setFilters({
             ...filters,
             page: 1,
