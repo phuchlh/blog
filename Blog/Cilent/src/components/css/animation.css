@@ -1,0 +1,24 @@
+#cool-link {
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+}
+
+#cool-link:hover{
+    color: orange;
+}
+
+#cool-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #000;
+    transition: width .5s;
+  
+}
+
+#cool-link:hover::after {
+    width: 100%;
+
+}

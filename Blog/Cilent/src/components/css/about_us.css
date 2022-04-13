@@ -1,0 +1,200 @@
+
+
+
+
+  
+  
+  #introduction > p, 
+  #location > p,
+  #content-footer > p {
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+  
+  #questions > h2 {
+    font-family: "Gentium Book Basic", Georgia, serif;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  /* -------------------------
+        Link Styles
+     -------------------------*/
+  
+  
+  
+  /* -------------------------
+        
+     -------------------------*/
+  
+  #starcontainer h2 {
+    font-size: 2.8em;
+    margin-bottom: 0.2em;
+  }
+  
+  #starcontainerportfolio > h2 {
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 0.2em;
+    text-align: left;
+
+  }
+  
+  #fa-star {
+    margin-bottom: 0 auto;
+  }
+  
+  hr {
+    border: 2px solid #a1a1a1;
+    width: 15.7em;
+    margin-top: -1em;
+    margin-bottom: 2em; 
+    background-color: white;
+  }
+  
+  hr, .fa-star {
+    background-color: #fff;
+    padding: 0 .25em
+  }
+  
+  #starcontainer .fa {
+    color: #a1a1a1;
+  }
+  
+  #starcontainerportfolio .fa {
+    color: #a1a1a1;
+    display: inline-block;
+  }
+  
+  /* -------------------------
+        Layout Declarations
+     -------------------------*/
+  
+  #masthead-heading, 
+  #masthead-intro,
+  #content-footer,
+  #starcontainer,
+  #starcontainerportfolio {
+    text-align: center;
+    text-align: left;
+  }
+  
+  #masthead {
+    background-image: url("https://scontent.fdad3-1.fna.fbcdn.net/v/t1.15752-9/246636776_665198867784036_1466199727768613842_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=ae9488&_nc_ohc=CWE1VWcCFsMAX9PjMI6&_nc_ht=scontent.fdad3-1.fna&oh=79f25c7ed5fae1c15e39d177bae4a818&oe=61A2CE5F");
+    background-repeat: no-repeat;
+    border-top: solid 1em #a1a1a1;
+    border-bottom: solid 1em #a1a1a1;
+    background-size: cover;
+    padding: 6em 0;
+  }
+  
+  #masthead > img {
+    max-height: 6em;
+    border-radius: 150%;
+    display: block;
+    margin: 0 auto;
+    border: 4px solid #a1a1a1;
+  }
+  
+  #masthead-intro {
+    margin-bottom: 0.1em;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 2em;
+  }
+  
+  #masthead-heading {
+    margin-top: -0.2em;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+    font-size: 6em;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  
+  #content-footer,
+  #introduction, 
+  #location, 
+  #questions {
+    max-width: 38em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+  }
+  
+  #questions {
+    padding-bottom: 1.5em;
+  }
+  
+ 
+  
+  /* -------------------------
+          Footer
+     -------------------------*/
+  
+  
+  section > h1 {
+    margin-top: 2em;
+  }
+  
+  
+  
+  #content-footer > p {
+    color: white;
+   
+  
+   
+  }
+  
+  #content-footer > a {
+    margin-right: 0.1em;
+    
+  }
+  
+  #content-footer {
+    background-color: #282828;
+    max-width: 100%;
+    padding: 4em 0;
+  }
+
+   /* services */
+  #services{
+    margin: 20px 0 10px;
+  }
+  #service_content{
+    width: 70%;
+    /* 100%-70 = 30 */
+    margin: auto;
+    /* margin 15% 
+    margin 15% thụt vào mỗi bên 15 % */
+    text-align: center;
+  }
+  #services__items{
+    float: left;
+    width: 50%;
+    padding: 0 40px;
+    
+   
+  }
+  #services__items img{
+    height: 50px;
+    width: 80px;
+    margin: auto;
+    background-color: white;
+    background-image:none;
+  }
+  #services__items i{
+    font-size: 40px;
+    /* margin: 10x  0; */
+    
+  }
+  #services__items h2{
+    margin: 10px 0;
+    font-weight: 600;
+
+  }
+  #services__items p{
+    margin: 0;
+  }
+  
+  
+  

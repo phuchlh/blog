@@ -1,0 +1,226 @@
+#banner {
+    box-shadow: tomato;
+    display: grid;
+    grid-template-columns: 418px 300px;
+    width: 718px;
+    height: 512px;
+    z-index: -1;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -70%);
+    filter: drop-shadow(0 0 5px #F2E9E4);
+    z-index: 10;
+}
+
+#hien {
+    position: absolute;
+    left: 50%;
+    filter: drop-shadow(0 0 5px #F2E9E4);
+    z-index: 10;
+}
+
+body {}
+
+#login {
+    text-align: center;
+    background-color: white;
+}
+
+#form-input {
+    position: relative;
+    z-index: 2;
+    border: 2px solid rgba(211, 208, 208, 0.658);
+    border-radius: 4px;
+    height: 50px;
+    padding: 0 20px;
+    transition: 0.25s ease;
+    margin-bottom: 25px;
+    user-select: none;
+}
+
+#form-input:focus {
+    --tw-text-opacity: 1;
+    border-color: rgba(37, 99, 235, var(--tw-text-opacity));
+    outline: none;
+    user-select: none;
+}
+
+#form-field {
+    position: relative;
+    z-index: 1;
+}
+
+#form-label {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    left: 0px;
+    user-select: none;
+    color: rgba(207, 195, 195, 0.795);
+    pointer-events: none;
+    transition: 0.25s ease;
+    padding-bottom: -20px;
+    z-index: 2;
+}
+
+#form-input:not(:placeholder-shown)+#form-label, #form-input:focus+#form-label {
+    top: 0px;
+    left: -10px;
+    user-select: none;
+    display: inline-block;
+    background-color: white;
+    color: #575669;
+}
+
+#form-input:focus+#form-label {
+    top: 0px;
+    left: -10px;
+    padding: 0px;
+    display: inline-block;
+    background-color: white;
+    --tw-text-opacity: 1;
+    color: rgba(37, 99, 235, var(--tw-text-opacity));
+    user-select: none;
+}
+
+#form-field-invalid {
+    position: relative;
+    z-index: 1;
+    color:red;
+    user-select: none;
+}
+
+#form-input-invalid {
+    position: relative;
+    z-index: 2;
+    border: 1px solid red;
+    border-radius: 4px;
+    height: 50px;
+    padding: 0 20px;
+    transition: 0.25s ease;
+    margin-bottom: 25px;
+    user-select: none;
+}
+
+#form-input-invalid:focus {
+    --tw-text-opacity: 1;
+    outline: none;
+  
+}
+
+
+#form-label-invalid {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    left: 0;
+    user-select: none;
+    color: red;
+    pointer-events: none;
+    transition: 0.25s ease;
+    padding-bottom: -20px;
+    z-index: 2;
+    user-select: none;
+}
+
+#form-input-invalid:not(:placeholder-shown)+#form-label-invalid, #form-input-invalid:focus+#form-label-invalid {
+    top: 0px;
+    left: 0;
+    padding: -10px ;
+    display: inline-block;
+    background-color: white;
+    color: red;
+    user-select: none;
+}
+
+#form-input-invalid:focus+#form-label-invalid {
+    top: 0px;
+    left: -10px;
+    padding: 0px;
+    display: inline-block;
+    background-color: white;
+    --tw-text-opacity: 1;
+    color: red;
+    user-select: none;
+}
+
+#img {
+    background-color: #BB9F66;
+}
+
+#login h2 {
+    margin-top: 22px;
+    color: #f66c08;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 25px;
+}
+
+#login h3 {
+    margin-top: 22px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 25px;
+}
+
+#login p {
+    color: #575669;
+    font-size: 11px;
+    line-height: 13px;
+    margin-bottom: 25px;
+}
+
+#log {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    width: 70%;
+    color: white;
+    height: 30px;
+    background-color: #32437c;
+    padding: 0 20px;
+    transition: 0.25s ease;
+    margin-bottom: 25px;
+}
+
+#log:focus-within {
+    background-color: blue;
+}
+
+#gmail {
+    text-align: left;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    width: 70%;
+    height: 1000px;
+    color: #0000008A;
+    height: 30px;
+    background-color: white;
+}
+
+#gmail svg {
+    float: left;
+}
+
+#gmail div {
+    float: left;
+    padding-left: 10px;
+}
+
+#gg {
+    padding-left: 5px;
+}
+
+#img {
+    background: cover;
+}
+
+#book {
+    margin-top: 50px;
+    margin-left: 9%;
+    
+    width: 249px;
+    height: 400px;
+   
+}

@@ -1,0 +1,73 @@
+
+
+body{
+  padding: 0;
+  margin: 0;
+  
+}
+html{
+  font-family: Arial, Helvetica, sans-serif;
+}
+#header-app-store{
+  display: flex;
+  list-style-type: none;
+  height: 56px;
+
+
+
+}
+
+#nav{
+  text-align: center;
+  z-index:30;
+  position: fixed;
+  height: 80px;
+  
+  background-color: white ;
+  top: 0;
+  right: 0;
+  left: 0;
+  color: black;
+
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+
+#subnav{
+  display: none;
+}
+
+#nav ul div li:hover #subnav{
+  display: block;
+  width: 100%;
+}
+
+#header-app-store li{
+ position: relative;
+ padding: 0 33px;   
+}
+
+#header-app-store li p{
+  text-decoration: none;
+  
+  display: block;   
+  font-size: 20px;  
+
+  
+}
+#header-app-store li p:hover{
+  color: black;
+}
+#header-app-store li #icon-nav{
+  font-size: 20px;
+}
+
+#fpt{
+  max-height: 59px;
+  position: absolute;
+  width: auto;
+  max-width: 280px;
+  height: auto;
+  z-index: 4;
+}
