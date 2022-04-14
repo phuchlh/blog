@@ -190,7 +190,14 @@ export default function ListPost(props) {
                                     title={userList.map(name => {
                                         if (name?.id == post?.idAccount) {
                                             return (
-                                                <p className="font-semibold text-slate-900"> {name?.username}</p>
+                                                < NavLink
+                                                activeStyle={{ color: '#2596be' }}
+                                                to={{
+                                                    pathname: "/post/member/memberview",
+                                                    state: {
+                                                        name: name,
+                                                    }
+                                                }} ><Typography variant="h5"  > {name?.username} </Typography></NavLink>
                                             )
                                         }
                                     })}

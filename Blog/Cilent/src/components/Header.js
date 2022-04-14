@@ -181,7 +181,7 @@ function Header(props) {
           <NavLink activeStyle={{ color: '#000000', height: "80px" }} to="/aboutus" className="my-link ml-20 leading-80"><Button
             id="composition-button"
             aria-haspopup="true"
-          >
+            >
             <p className="text-gray-900"> About Us</p>
           </Button></NavLink>
           <div className="my-link ml-20 leading-80 text-3xl">
