@@ -13,9 +13,7 @@ import SearchIcon from '@mui/icons-material/Search';
 function Post(props) {
   const history = useHistory();
 
-  <Route exact path="/profile">
-    {localStorage.getItem(`user-token`) ? <Redirect to="/post" /> : history.push("/login")}
-  </Route>
+
   const [show, setShow] = useState(false);
   const [isClicked, setIsClicked] = useState(true);
   function showModal(accountData, roleData, specData) {
