@@ -53,7 +53,14 @@ export default function SearchPeople(props) {
 
     }
 
+      
+    const filterList1 = userList.filter(user => {
+        if (user?.id != localStorage.getItem('id-token')) {
+            return user
+        }
+    })
 
+console.log("filter search:", filterList1)
 
     return (
         <Post >
@@ -61,7 +68,7 @@ export default function SearchPeople(props) {
                 <Search parentCallback={callbackSearch} />
             </div>
 
-            {userList.map((user, index) => {
+            {filterList1.map((user, index) => {
                 return (
                     <List className="clear-both ml-64 " key={user.id} sx={{ width: '100%', maxWidth: "100%", bgcolor: 'background.paper' }}>
                         <ListItem alignItems="flex-start">
