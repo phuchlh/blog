@@ -81,6 +81,17 @@ export default function SearchPeople(props) {
                                 }
                                 secondary={
                                     <React.Fragment>
+                                       
+                                        <Typography
+                                            sx={{ display: 'inline' }}
+                                            component="span"
+                                            variant="body2"
+                                            color="text.primary"
+                                        >
+                                            Email:
+                                        </Typography>
+                                        {user?.email}
+                                        {"-----"}
                                         <Typography
                                             sx={{ display: 'inline' }}
                                             component="span"
@@ -90,6 +101,7 @@ export default function SearchPeople(props) {
                                             Phone:
                                         </Typography>
                                         {user?.phone !== null ? user?.phone : " People not Phone"}
+                                        
                                     </React.Fragment>
                                 }
                             />

@@ -16,18 +16,27 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Link, NavLink } from 'react-router-dom';
 import Search from './Search'
+import Modal from '../../Modal';
+import ModalePost from './ModalePost';
+import MuiAlert from '@material-ui/lab/Alert';
+import Snackbar from '@material-ui/core/Snackbar';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 export default function ListPost(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    const [message, setMessage] = useState('');
     const [postList, setPostList] = useState([]);
     const [userList, setUserList] = useState([]);
-    
+    const [show, setShow] = useState(false);
+    const [open, setOpen] = useState(false);
+    const [isClicked, setIsClicked] = useState(true);
     async function featchPostList() {
         try {
             const requestURL = `http://127.0.0.1:8000/post/search_by_title?search=${search}`;
@@ -46,7 +55,7 @@ export default function ListPost(props) {
 
             return data
         } catch (error) {
-           
+
         }
 
     }
@@ -60,13 +69,13 @@ export default function ListPost(props) {
                 }
             })
             const responseJSON = await response.json();
-           
+
             const { data, pagination } = responseJSON;
             setUserList(responseJSON);
 
-           
+
         } catch (error) {
-            
+
         }
 
     }
@@ -83,7 +92,7 @@ export default function ListPost(props) {
             return post
         }
     })
-  
+
 
     const callbackSearch = (childData) => {
         setSearch(childData)
@@ -116,19 +125,54 @@ export default function ListPost(props) {
     let notFount;
     notFount = (
         <div className="text-center text-5xl w-full ml-650 font-bold text-red-600">
-              Not Found Post!
+            Not Found Post!
         </div>
     );
+    const [selectedData, setSelectedData] = useState(undefined)
+    function showModal(data) {
+        setSelectedData(data)
+        setShow(true);
+        setIsClicked(true);
+    };
+    function hideModal() {
+        setShow(false);
+        setIsClicked(true);
+        setSelectedData(undefined);
+    };
+    useEffect(() => {
+        if (!show) {
+        }
+    }, [show])
+
+    const callbackFunction = (childData, alert) => {
+        setMessage(childData)
+
+        setOpen(true)
+    };
+    const handleClose = (event, reason) => {
+        if (reason === "clickaway") {
+            return;
+        }
+
+        setOpen(false);
+    };
     return (
         <Post >
+            <Snackbar open={open} autoHideDuration={4000} onClose={handleClose} className="float-left w-screen">
+                <Alert onClose={handleClose} severity="success" >
+                    {message}
+                </Alert>
+            </Snackbar>
             <div className="float-right -mt-16 mr-20  ">
 
                 <Search parentCallback={callbackSearch} />
             </div>
 
             <div className="grid grid-cols-3 mt-8 pt-12 clear-both">
-          
-                { sortFirstDay != "" ? sortFirstDay.map((post, index) => {
+                <Modal show={show} handleClose={hideModal} className="mb-5">
+                    <ModalePost data={selectedData} parentCallback={callbackFunction} onModal={() => setShow(false)} onDelete={() => featchPostList()} />
+                </Modal>
+                {sortFirstDay != "" ? sortFirstDay.map((post, index) => {
 
                     return (
                         <div key={post.id} className='justify-center items-center mx-auto mb-16 '>
@@ -154,7 +198,11 @@ export default function ListPost(props) {
                                         ? post?.createDate.substring(8, 10) + "/" + post?.createDate.substring(5, 7) + "/" + post?.createDate.substring(0, 4)
                                         : post?.createDate.substring(11, 19) + " today"
                                     }
-                                    action={post?.idAccount == localStorage.getItem('id-token') ? "..." : ""}
+                                    action={post?.idAccount == localStorage.getItem('id-token')
+                                        ? <div className="text-2xl ml-5 cursor-pointer   mr-8" onClick={() => showModal(post)} >
+                                            ...
+                                        </div>
+                                        : ""}
 
 
                                 />
@@ -164,21 +212,21 @@ export default function ListPost(props) {
                                     height="194"
                                     image={post?.image}
                                 />
-                                <CardContent>
+                                <CardContent className="">
                                     <Link to={{
                                         pathname: "/post/view",
                                         state: {
                                             name: post,
                                         }
-                                    }} ><Typography variant="h5" > {post?.title} </Typography></Link>
+                                    }} ><Typography variant="h5" > {post?.title.length <= 20 ? post?.title : post?.title.slice(0, 20).concat("...")} </Typography></Link>
                                 </CardContent>
                             </Card>
                         </div>
 
                     )
-               
-                                
-                })  : notFount   }
+
+
+                }) : notFount}
             </div>
 
 

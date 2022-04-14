@@ -29,9 +29,10 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 export default function UserView(props) {
     const [postList, setPostList] = useState([]);
     const [name, setName] = useState("");
-  
+
     useEffect(() => {
         featchPostList()
+        setName(props?.location?.state?.name?.username)
     }, [props]);
     async function featchPostList() {
         try {
@@ -51,84 +52,95 @@ export default function UserView(props) {
 
             return data
         } catch (error) {
-           
+
         }
 
     }
-   
-  
-   
 
-    let sortFirstDay = postList.sort((a, b) => {
+    const filterList1 = postList.filter(post => {
+        if (post?.status === "ACTIVE") {
+            return post
+        }
+    })
+
+
+    let sortFirstDay = filterList1.sort((a, b) => {
         return new Date(b.createDate) - new Date(a.createDate);
 
     })
-  
+
     const [status, setStatus] = useState("")
     var curDate = new Date();
     var curDay = curDate.getDate();
     var curMonth = curDate.getMonth() + 1;
     var curYear = curDate.getFullYear();
-    
-   
+    let notFount;
+    notFount = (
+        <div className="text-center text-5xl w-full  font-bold text-red-600">
+            {name} doesn't have any Posts!
+        </div>
+    );
+    console.log("prop của view member", props?.location?.state?.name?.username)
     return (
         <Post >
-            
+
             <CardHeader
                 avatar={
                     <Avatar sx={{ width: 180, height: 180, bgcolor: red[500] }} aria-label="recipe">
                         <p className="text-9xl">{props?.location?.state?.name?.username.slice(0, 1)}</p>
                     </Avatar>
-           
+
                 }
                 title={<p className="font-extrabold text-3xl"> {props?.location?.state?.name?.username} </p>}
                 className="ml-80 mb-24"
             />
             <div className="grid grid-cols-1">
-                {sortFirstDay?.map((post, index) => {
-                
-                        return (
-                            <div key={post.id} className='justify-center items-center mx-auto mb-16 '>
-                                <Card sx={{ width: 800 }} > 
-                                    <CardHeader
-                                        avatar={
-                                            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                                                {name.slice(0, 1)}
-                                            </Avatar>
 
+                {sortFirstDay != "" ? sortFirstDay?.map((post, index) => {
+
+                    return (
+                        <div key={post.id} className='justify-center items-center mx-auto mb-16 '>
+                            <Card sx={{ width: 800 }} >
+                                <CardHeader
+                                    avatar={
+                                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                                            {name.slice(0, 1)}
+                                        </Avatar>
+
+                                    }
+                                    title={name}
+                                    subheader=
+                                    //                                        
+                                    {post?.createDate.substring(8, 10) < curDay && post?.createDate.substring(5, 7) <= curMonth && post?.createDate.substring(0, 4) <= curYear
+                                        ? post?.createDate.substring(8, 10) + "/" + post?.createDate.substring(5, 7) + "/" + post?.createDate.substring(0, 4)
+                                        : post?.createDate.substring(11, 19) + " today"
+                                    }
+
+                                />
+
+                                <CardMedia
+                                    className="h-96"
+                                    component="img"
+                                    height="194"
+                                    image={post?.image}
+
+                                />
+                                <CardContent>
+                                    <Link to={{
+                                        pathname: "/post/view",
+                                        state: {
+                                            name: post,
                                         }
-                                        title={name}
-                                        subheader=
-                                        //                                        
-                                        {post?.createDate.substring(8, 10) < curDay && post?.createDate.substring(5, 7) <= curMonth && post?.createDate.substring(0, 4) <= curYear
-                                            ? post?.createDate.substring(8, 10) + "/" + post?.createDate.substring(5, 7) + "/" + post?.createDate.substring(0, 4)
-                                            : post?.createDate.substring(11, 19) + " today"
-                                        }
+                                    }} ><Typography variant="h5" className="text-center" > {post?.title} </Typography></Link>
 
-                                    />
+                                </CardContent>
+                            </Card>
+                        </div>
 
-                                    <CardMedia
-                                        className="h-96"
-                                        component="img"
-                                        height="194"
-                                        image={post?.image}
+                    )
 
-                                    />
-                                    <CardContent>
-                                        <Link to={{
-                                            pathname: "/post/view",
-                                            state: {
-                                                name: post,
-                                            }
-                                        }} ><Typography variant="h5" className="text-center" > {post?.title} </Typography></Link>
 
-                                    </CardContent>
-                                </Card>
-                            </div>
-
-                        )
-                    
-                })}
+                }) : notFount}
             </div>
 
         </Post>

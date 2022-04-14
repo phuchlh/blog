@@ -197,8 +197,8 @@ function Profile(props) {
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                    <MenuItem value="true">Female</MenuItem>
-                    <MenuItem value="false">Male</MenuItem>
+                    <MenuItem value="false">Female</MenuItem>
+                    <MenuItem value="true">Male</MenuItem>
 
                 </Select>
             </FormControl>
@@ -254,8 +254,8 @@ function Profile(props) {
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                    <MenuItem value="true">Female</MenuItem>
-                    <MenuItem value="false">Male</MenuItem>
+                    <MenuItem value="false">Female</MenuItem>
+                    <MenuItem value="true">Male</MenuItem>
 
                 </Select>
             </FormControl>

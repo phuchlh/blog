@@ -120,7 +120,7 @@ function Header(props) {
     )
 
 
-    if (postList.roleName_id == '1') {
+    if (postList.is_superuser == true) {
       adminDashboardButtons = (
         <NavLink activeStyle={{ backgroundColor: 'white' }} to="/admindashboard/user" className="my-link ml-20 leading-80 "><Button
           id="composition-button"

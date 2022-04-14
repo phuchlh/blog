@@ -4,7 +4,7 @@ import Footer from "../../Footer";
 
 import { useLocation, useHistory } from 'react-router-dom'
 import MediaCard from "../../Card";
-
+import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import { Link, NavLink } from 'react-router-dom';
@@ -16,11 +16,12 @@ import CardMedia from '@mui/material/CardMedia';
 import ScrollToTop from "../../ScrollToTop";
 
 export default function PostView(props) {
-    <ScrollToTop />  
+    <ScrollToTop />
     const [accountDetail, setAccountDetail] = useState([]);
     const [accountBlog, setAccountBlog] = useState([]);
+    const [name, setName] = useState("");
     const history = useHistory();
-  
+
     useEffect(() => {
         if (props?.location?.state?.name) {
             featchAccount(props?.location?.state?.name?.idAccount)
@@ -45,10 +46,10 @@ export default function PostView(props) {
             const { data, pagination } = responseJSON;
 
             setAccountDetail(responseJSON);
-
+            setName(responseJSON?.username);
             return data
         } catch (error) {
-           
+
         }
     }
     async function featchPostAccount(id) {
@@ -69,11 +70,11 @@ export default function PostView(props) {
 
             return data
         } catch (error) {
-            
+
         }
     }
     const filterList = accountBlog.filter(acc => {
-        if (acc?.id !== props?.location?.state?.name?.id ) {
+        if (acc?.id !== props?.location?.state?.name?.id) {
             return acc
         }
     })
@@ -88,14 +89,14 @@ export default function PostView(props) {
             <Header >
                 <div className="">
                     <h2 className="text-center h-20 leading-80 my-auto le text-5xl bg-xanhla text-white font-serif uppercase    clear-both ">{props?.location?.state?.name?.title}</h2>
-                    <Card  sx={{ minWidth: 500,  }} className="mx-44 mt-5">
-                      
-                            <CardMedia
-                                        component="img"
-                                        height="140"
-                                        className="h-96 "
-                                        image={props?.location?.state?.name?.image}    
-                                    />
+                    <Card sx={{ minWidth: 500, }} className="mx-44 mt-5">
+
+                        <CardMedia
+                            component="img"
+                            height="140"
+                            className="h-96 "
+                            image={props?.location?.state?.name?.image}
+                        />
                     </Card>
                     <div role="presentation" className="ml-44 mt-5" >
                         <Breadcrumbs aria-label="breadcrumb">
@@ -116,8 +117,12 @@ export default function PostView(props) {
                         <div></div>
                         <div className="col-span-9 grid  ">
                             <div className="row-span-1  grid grid-cols-9">
-                                <img src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t1.6435-9/80258477_2385822061670642_3771683375601942528_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=cdbe9c&_nc_ohc=mmkiX-c-CG4AX8Pbvym&_nc_ht=scontent.fsgn5-10.fna&oh=00_AT--Qa1DWcLFqgASZTI4t76V7KxrqlIkNkqXLgwKohjTmA&oe=625F78FF"
-                                    className="rounded-full ml-7 col-span-1  w-16 h-16  " />
+                                <div
+                                    className="rounded-full ml-7 col-span-1  w-16 h-16  ">
+                                    <Avatar sx={{ width: 64, height: 64 }} aria-label="recipe">
+                                        <p className="text-4xl">{name.slice(0, 1)}</p>
+                                    </Avatar>
+                                </div>
                                 <div>
                                     <p className=" -ml-7 text-xl font-bold mt-1">{accountDetail?.username}</p>
                                     <p className=" -ml-7 text-lg text-gray-400  -mt-2"> {props?.location?.state?.name?.createDate.substring(8, 10) + "/" + props?.location?.state?.name?.createDate.substring(5, 7) + "/" + props?.location?.state?.name?.createDate.substring(0, 4)}</p>
@@ -125,7 +130,7 @@ export default function PostView(props) {
                             </div>
                         </div>
                         <div>
-                            <p className=" text-5xl cursor-pointer text-center justify-center">{accountDetail?.id == localStorage.getItem('id-token') ? "..." : ""}</p>
+                            {/* <p className=" text-5xl cursor-pointer text-center justify-center">{accountDetail?.id == localStorage.getItem('id-token') ? "..." : ""}</p> */}
                         </div>
                     </div>
                     <div className="mx-64 my-5 border-b-2 pb-8 border-xanhla">
@@ -142,7 +147,7 @@ export default function PostView(props) {
                                         component="img"
                                         height="140"
                                         className="h-72"
-                                        image={blog?.image}    
+                                        image={blog?.image}
                                     />
                                     <CardContent>
                                         <Typography gutterBottom variant="h5" component="div">
@@ -150,12 +155,12 @@ export default function PostView(props) {
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                    <Link to={{
-                                        pathname: "/post/view",
-                                        state: {
-                                            name: blog
-                                        }
-                                    }} > <Button size="small">Learn More</Button></Link>
+                                        <Link to={{
+                                            pathname: "/post/view",
+                                            state: {
+                                                name: blog
+                                            }
+                                        }} > <Button size="small">Learn More</Button></Link>
                                     </CardActions>
                                 </Card>
                             )
