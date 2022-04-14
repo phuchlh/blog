@@ -105,7 +105,7 @@ function GetPost(props) {
                         <td className="  ">
 
 
-                            <button type="button" className="font-bold" onClick={() => showModal(post.id)}>
+                            <button type="button" className="font-bold" onClick={() => showModal(post.id, user)}>
 
                                 <RemoveRedEyeIcon />
                             </button>

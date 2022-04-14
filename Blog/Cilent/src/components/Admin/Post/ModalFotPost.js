@@ -201,7 +201,7 @@ export default function ModalForPost(props) {
 
     // const inforSubject = subject?.map( name => {return name.name})
 
-
+    console.log("props cua modal post:", props)
     let roleData
 
 
@@ -233,7 +233,7 @@ export default function ModalForPost(props) {
                         <tr className="border-b-2 h-50 ">
                             <th className="text-left  "> Name User:  </th>
                             <td className="font-normal pl-10 text-gray-900 outline-none">
-
+                               
                                 {props?.nameUser?.map((userName, index) => {
                                     if (userName?.id == all?.idAccount) {
 
