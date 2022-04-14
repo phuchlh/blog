@@ -32,7 +32,7 @@ export default function Home() {
               <p className="mb-28 text-xanhla text-xl w-9/12  text-left ml-40">  Get paid for your hard work. Google AdSense can automatically display relevant targeted ads on your blog so that you can earn income by posting about your passion.</p>
               <button className=" w-72 rounded-5xl h-16 float-right bg-xanhla  text-center" onClick={
                 () => {
-                  history.push('/subject')
+                  history.push('/post/mypost')
                 }
               } ><p className="text-white text-2xl font-bold  ">Create Your Blog</p></button>
             </div>
