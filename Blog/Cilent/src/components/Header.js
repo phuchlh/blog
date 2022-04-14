@@ -227,7 +227,7 @@ function Header(props) {
                         <Link className="hover:underline" color="inherit" to="/post/allPost">
                           <MenuItem onClick={handleClose}>All Post</MenuItem>
                         </Link>
-                        <Link className="hover:underline" color="inherit" to="/post/mypost">
+                        <Link className="hover:underline" color="inherit" to="/post/member">
                           <MenuItem onClick={handleClose}>Search People</MenuItem>
                         </Link>
                       </MenuList>
