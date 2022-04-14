@@ -290,7 +290,7 @@ export default function ModalForUser(props) {
                     <td className="font-normal pl-10  outline-none">
                         <select value={gender} onChange={e => setGender(e.target.value)} className="font-normal  pl-3 outline-none ">
                             <option className=" text-gray-400 hidden text-xl" >Select gender...</option>
-                            <option className=" text-black-600  " value="false">Famale</option>
+                            <option className=" text-black-600  " value="false">Female</option>
                             <option className=" text-black-600 " value="true">Male</option>
                         </select>
                     </td>
