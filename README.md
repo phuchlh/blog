@@ -14,6 +14,19 @@
 1. Sign-in, sign-up
 2. Specify user and admin pages
 3. With user role:
-  3.1. Post some thing
-  3.2. See their post
-  
+  * Post something
+  * Search for another user on website
+  * See their post and other users' posts
+  * Change status of their post
+4. With admin role:
+  * Manage all user (delete, change information, ...)
+  * Manage post
+  * Search for someone post
+5. Guest cant do anything, except login or signup
+
+### Tech
+1. Front-end: ReactJS
+2. Back-end: Django
+3. Database: PostgreSQL
+4. Hosted database by: Heroku
+5. Running local host because we're all poor students
