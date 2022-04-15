@@ -9,3 +9,11 @@
 3. [TaiTT](https://www.facebook.com/ttai0620) - back-end
 4. [MinhTQ](https://www.facebook.com/thamminhhh) - back-end
 5. [PhucHLH](https://www.facebook.com/hongphuc.huynhle.1) - back-end
+
+### Features
+1. Sign-in, sign-up
+2. Specify user and admin pages
+3. With user role:
+  3.1. Post some thing
+  3.2. See their post
+  
